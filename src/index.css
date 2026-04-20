@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: #FFF8F3;
+    color: #1F2937;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #D1D5DB; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-primary text-white font-semibold text-sm
+           hover:bg-primary-dark active:scale-[0.98]
+           transition-all duration-150 shadow-sm select-none cursor-pointer;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-white text-ink border border-border font-semibold text-sm
+           hover:border-primary hover:text-primary hover:bg-primary-lighter
+           active:scale-[0.98] transition-all duration-150 select-none cursor-pointer;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-accent text-white font-semibold text-sm
+           hover:bg-accent-dark active:scale-[0.98]
+           transition-all duration-150 shadow-sm select-none cursor-pointer;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           text-ink-muted font-medium text-sm hover:text-ink hover:bg-border/40
+           transition-all duration-150 select-none cursor-pointer;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-border shadow-card;
+  }
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl border border-border bg-white text-ink text-sm
+           placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-primary/20
+           focus:border-primary transition-all duration-150;
+  }
+  .select {
+    @apply w-full px-4 py-2.5 rounded-xl border border-border bg-white text-ink text-sm
+           focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+           transition-all duration-150 cursor-pointer appearance-none;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium
+           border border-border bg-white text-ink-muted cursor-pointer select-none
+           hover:border-primary hover:text-primary hover:bg-primary-lighter
+           transition-all duration-150;
+  }
+  .chip-active {
+    @apply border-primary text-primary bg-primary-light;
+  }
+  .skeleton {
+    @apply rounded-xl bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100
+           bg-[length:600px_100%] animate-shimmer;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold;
+  }
+  .section-label {
+    @apply text-xs font-bold tracking-widest uppercase text-ink-muted;
+  }
+}
+
+/* Hero dot-grid texture */
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(231,111,81,0.12) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+/* Hawa Mahal architectural illustration pattern */
+.mahal-pattern {
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 38px,
+    rgba(231,111,81,0.06) 38px, rgba(231,111,81,0.06) 40px
+  ),
+  repeating-linear-gradient(
+    90deg, transparent, transparent 18px,
+    rgba(231,111,81,0.04) 18px, rgba(231,111,81,0.04) 20px
+  );
+}
+
+/* Chat streaming dots */
+.typing-dot { display: inline-block; animation: dotPulse 1.4s infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
