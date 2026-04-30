@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: #FAFAFA;
+    color: #1E293B;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #CBD5E1; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-primary text-white font-semibold text-sm
+           hover:bg-primary-dark active:scale-[0.98] hover:shadow-3d hover:-translate-y-1
+           transition-all duration-200 shadow-sm select-none cursor-pointer;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-white text-ink border-2 border-ink font-semibold text-sm
+           hover:shadow-3d hover:-translate-y-1 hover:text-primary
+           active:scale-[0.98] transition-all duration-200 select-none cursor-pointer;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           bg-accent text-ink font-bold text-sm border-2 border-ink
+           hover:shadow-3d hover:-translate-y-1 active:scale-[0.98]
+           transition-all duration-200 shadow-sm select-none cursor-pointer;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           text-ink-muted font-medium text-sm hover:text-ink hover:bg-border/40
+           transition-all duration-150 select-none cursor-pointer;
+  }
+  .card {
+    @apply bg-white rounded-2xl border-2 border-border shadow-card transition-all duration-300 hover:shadow-3d hover:-translate-y-1;
+  }
+  .input {
+    @apply w-full px-4 py-2.5 rounded-xl border-2 border-border bg-white text-ink text-sm
+           placeholder:text-ink-faint focus:outline-none focus:border-primary focus:shadow-3d transition-all duration-200;
+  }
+  .select {
+    @apply w-full px-4 py-2.5 rounded-xl border-2 border-border bg-white text-ink text-sm
+           focus:outline-none focus:border-primary focus:shadow-3d
+           transition-all duration-200 cursor-pointer appearance-none;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-bold
+           border-2 border-border bg-white text-ink-muted cursor-pointer select-none
+           hover:border-primary hover:text-primary hover:-translate-y-0.5 hover:shadow-sm
+           transition-all duration-200;
+  }
+  .chip-active {
+    @apply border-primary text-primary bg-primary-light shadow-sm -translate-y-0.5;
+  }
+  .skeleton {
+    @apply rounded-xl bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100
+           bg-[length:600px_100%] animate-shimmer;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold border-2 border-ink shadow-[2px_2px_0px_0px_rgba(30,41,59,1)];
+  }
+  .section-label {
+    @apply text-xs font-black tracking-widest uppercase text-ink-muted;
+  }
+}
+
+/* 3D Transform Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.perspective {
+  perspective: 1000px;
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Hero dot-grid texture */
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(233,30,99,0.15) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Hawa Mahal architectural illustration pattern */
+.mahal-pattern {
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 38px,
+    rgba(233,30,99,0.08) 38px, rgba(233,30,99,0.08) 40px
+  ),
+  repeating-linear-gradient(
+    90deg, transparent, transparent 18px,
+    rgba(233,30,99,0.05) 18px, rgba(233,30,99,0.05) 20px
+  );
+}
+
+/* Chat streaming dots */
+.typing-dot { display: inline-block; animation: dotPulse 1.4s infinite; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }

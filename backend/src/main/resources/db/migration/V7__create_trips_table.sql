@@ -1,0 +1,22 @@
+CREATE TABLE trips (
+    id              BIGINT          NOT NULL AUTO_INCREMENT,
+    user_id         BIGINT          NOT NULL,
+    city            VARCHAR(100)    NOT NULL DEFAULT 'jaipur',
+    title           VARCHAR(300)    NOT NULL,
+    days            INT             NOT NULL DEFAULT 1,
+    budget          DECIMAL(12,2),
+    travel_style    VARCHAR(50),
+    group_type      VARCHAR(50),
+    interests_json  JSON,
+    summary         TEXT,
+    total_cost      DECIMAL(12,2)   NOT NULL DEFAULT 0,
+    itinerary_json  LONGTEXT,
+    notes           TEXT,
+    created_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    INDEX idx_trips_user (user_id),
+    INDEX idx_trips_city (city),
+    INDEX idx_trips_created (created_at),
+    CONSTRAINT fk_trips_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

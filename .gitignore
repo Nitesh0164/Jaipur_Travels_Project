@@ -1,0 +1,25 @@
+# Backend
+backend/target/
+backend/.env
+backend/*.log
+
+# Frontend
+cj/node_modules/
+cj/dist/
+cj/.env
+cj/.env.local
+cj/.env.development
+cj/.env.production
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+*.key
+application-local.yml
